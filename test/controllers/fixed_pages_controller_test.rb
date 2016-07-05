@@ -1,24 +1,32 @@
 require 'test_helper'
 
 class FixedPagesControllerTest < ActionDispatch::IntegrationTest
+  def setup
+    @common_title ="| Learn it live it" 
+  end
+  
   test "should get home" do
-    get fixed_pages_home_url
+    get root_url
     assert_response :success
+    assert_select "title", "Home #{@common_title}"
   end
 
   test "should get faq" do
-    get fixed_pages_faq_url
+    get faq_url
     assert_response :success
+    assert_select "title", "FAQ #{@common_title}"
   end
 
   test "should get about" do
-    get fixed_pages_about_url
+    get about_url
     assert_response :success
+    assert_select "title", "About #{@common_title}"
   end
 
   test "should get contact" do
-    get fixed_pages_contact_url
+    get contact_url
     assert_response :success
+    assert_select "title", "Contact #{@common_title}"
   end
 
 end
