@@ -1,8 +1,19 @@
-<%= link_to "E-Library", '#' %>
-<ul>
-    
-    <li><%= link_to "Home", root_url %></li>
-    <li><%= link_to "FAQ", faq_url %></li>
-    <li><%= link_to "Login", '#' %></li>
-</ul>
+<div class="top-bar">
+    <div class ="top-bar-title">
+        <span data-responsive-toggle="responsive-menu">
+            <button> class="menu-icon dark" type="button" data-togggle></button>
+            <strong><%= link_to "E-Library", '#' %></strong>
+    </div>
+    <div id="responsive menu">
+        <div class="top-bar-left">
+
+            <ul class="menu vertical">
+
+                <li><%= link_to "Home", root_url %></li>
+                <li><%= link_to "FAQ", faq_url %></li>
+                <li><%= link_to "Login", '#' %></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
