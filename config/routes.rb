@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
+
 
  root 'fixed_pages#home'
 
@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get 'about' => 'fixed_pages#about'
 
   get 'contact' => 'fixed_pages#contact'
+
+  get 'signup' => 'users#new'
+
+  resources :users 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
