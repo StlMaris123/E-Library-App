@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   get 'contact' => 'fixed_pages#contact'
 
-  get 'signup' => 'users#new'
 
   resources :users 
 
