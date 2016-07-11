@@ -1,6 +1,3 @@
-
-= require foundation
-$(document).foundation();
 //// This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15,7 +12,7 @@ $(document).foundation();
 //
 //= require jquery
 //= require jquery_ujs
-= require foundation
+//= require foundation
 //= require turbolinks
 //= require_tree .
 

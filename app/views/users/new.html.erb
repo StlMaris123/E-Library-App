@@ -1,13 +1,18 @@
 <%= provide(:title, "signUp") %>
-<%= form_for @user do |f|%>
-    <%= render 'shared/error_messages' %>
-    <%= f.label :name %>
-    <%= f.text_field :name%>
-    <%= f.label :email%>
-    <%= f.email_field :email%>
-    <%= f.label :password%>
-    <%= f.password_field :password%>
-    <%= f.label :password_confirmation%>
-    <%= f.password_field :password%>
-    <%=f.submit "signup" %>
-<% end %>
+<div class="medium-4 columns medium-offset-4">
+    <div class="callout">
+        <h1> Sign Up</h1>
+        <%= form_for @user do |f|%>
+            <%= render 'shared/error_messages' %>
+            <%= f.label :name %>
+            <%= f.text_field :name%>
+            <%= f.label :email%>
+            <%= f.email_field :email%>
+            <%= f.label :password%>
+            <%= f.password_field :password%>
+            <%= f.label :password_confirmation%>
+            <%= f.password_field :password%>
+            <%=f.submit "signup" %>
+        <% end %>
+    </div>
+</div>

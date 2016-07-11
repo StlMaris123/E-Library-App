@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-
-
-  get 'sessions/new'
-
  root 'fixed_pages#home'
 
   get 'faq' => 'fixed_pages#faq'
