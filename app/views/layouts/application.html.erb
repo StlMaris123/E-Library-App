@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+        <title><%= content_for?(:title) ? yield(:title) : "untilted" %> | Learn it live it</title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-  </head>
+        <%= stylesheet_link_tag    "application" %>
+        <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
 
-  <body>
-	<%= render 'layouts/header' %>
-    <%= yield %>
-<%= render 'layouts/footer' %>
-  </body>
+    <body>
+        <%= render 'layouts/header' %>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+    </body>
 </html>
