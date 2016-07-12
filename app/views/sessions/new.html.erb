@@ -10,7 +10,7 @@
             <%=f.label :remember_me do %>
                 <%= f.check_box :remember_me %>
                 <% end %>
-            <%= f.submit "Login"  %>
+            <%= f.submit "Login", class: "large button"%>
         <% end %>
         <p>Don't have an account?<%= link_to "Sign Up", new_user_url %></p>
     </div>
