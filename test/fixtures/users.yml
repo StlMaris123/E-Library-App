@@ -8,3 +8,16 @@ boris:
   name: Boris Njage
   email: borisnjage@gmail.com
   password_digest: <%= User.digest('password') %>
+
+tracey:
+  name: Tracey Miriam
+  email: tracey@hotmail.co.ke
+  password_digest: <%= User.digest('password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name: <%= "User #{n}" %>
+  email: <%= "user_#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
+
