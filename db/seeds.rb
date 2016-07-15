@@ -17,3 +17,15 @@ User.create!(name: "Stella Njage",
                activated: true,
                activated_at: Time.zone.now)
 end
+100.times do |b|
+  isbn = Faker::Code.isbn
+  title = Faker::Book.title
+  description = Faker::Lorem.sentence
+  quantity = Faker::Number.between(1, 10)
+  Book.create!( ISBN: isbn,
+                title: title,
+                description: description,
+                quantity: quantity
+                )
+  puts "#{title}, "
+end
