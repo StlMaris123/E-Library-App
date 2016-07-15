@@ -55,6 +55,10 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+  #returns true if password reset hass expired
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
   private
   #converts email to all lower_case
   def downcase_email
