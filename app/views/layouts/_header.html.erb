@@ -4,12 +4,13 @@
     </div>
 
     <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu>
 
             <li><%= link_to "Home", root_url %></li>
             <li><%= link_to "FAQ", faq_url %></li>
             <li>
                 <% if logged_in? %>
+                    <%= link_to "books", books_url %>
+        <ul class="dropdown menu" data-dropdown-menu>
                     <%= link_to "Users", users_path %>
                     <ul class="menu vertical" >
                         <li><%= link_to "Profile", current_user %></li>

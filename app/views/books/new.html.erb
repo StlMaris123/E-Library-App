@@ -4,7 +4,7 @@
         <h1> Add Book</h1>
         <p> Fill The form below to add a book of your choice</p>
         <%= form_for @book do |f| %>
-            <%# <%= render 'shared/error_messages' %1> %>
+            <%= render 'shared/error_messages', object: f.object %>
             <%= f.label :ISBN %>
             <%= f.number_field :ISBN %>
 

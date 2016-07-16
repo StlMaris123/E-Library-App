@@ -4,7 +4,7 @@
         <h1> Update Book</h1>
         <p> Fill The form below to update a book </p>
         <%= form_for @book do |f| %>
-            <%# <%= render 'shared/error_messages' %1> %>
+            <%= render 'shared/error_messages', object: f.object %>
             <%= f.label :ISBN %>
             <%= f.number_field :ISBN %>
 

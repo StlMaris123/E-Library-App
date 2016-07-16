@@ -3,4 +3,8 @@
     <td><%= book.title %></td>
     <td><%= book.description %></td>
     <td><%= book.quantity %></td>
-</tr>
+    <td><% if logged_in?  %>
+        <%= link_to "delete",book, method: :delete,
+            data: { confirm: "You sure?" }%>
+    <% end %></td>
+</tr

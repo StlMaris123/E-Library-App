@@ -1,7 +1,15 @@
 <% provide(:title, "All Books") %>
 <h1>All Books</h1>
-<%# <% @books.each do |book| %1> %>
-<table class="stack">
-    <%= render @books  %>
-    <%# <% end %1> %>
-</table>
+<table>
+    <thead>
+        <tr>
+            <th>ISBN</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%= render @books %>
+    </tbody>
+    </table>

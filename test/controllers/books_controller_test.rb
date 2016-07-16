@@ -2,22 +2,22 @@ require 'test_helper'
 
 class BooksControllerTest < ActionDispatch::IntegrationTest
   test "should get new" do
-    get books_new_url
+    get new_book_url
     assert_response :success
   end
 
   test "should get index" do
-    get books_index_url
+    get books_url
     assert_response :success
   end
 
   test "should get edit" do
-    get books_edit_url
+    get edit_book_url
     assert_response :success
   end
 
   test "should get show" do
-    get books_show_url
+    get book_url
     assert_response :success
   end
 
