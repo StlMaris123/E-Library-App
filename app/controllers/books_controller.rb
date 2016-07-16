@@ -18,7 +18,17 @@ class BooksController < ApplicationController
 
 
   def edit
-    @book = Book.find_by(params[:title])
+    @book = Book.find_by(params[:id])
+  end
+
+  def update
+    @book = Book.find_by(params[:id])
+    if @book.update_attributes(book_params)
+      flash[:success] = "Book was successfully updated"
+     redirect_to @user
+    else
+      render 'edit'
+    end
   end
 
   def show
