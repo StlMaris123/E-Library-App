@@ -1,2 +1,24 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<% provide(:title, "Update Book")  %>
+<div class="medium-4 columns medium-offset-4">
+    <div class="callout">
+        <h1> Update Book</h1>
+        <p> Fill The form below to update a book </p>
+        <%= form_for @book do |f| %>
+            <%# <%= render 'shared/error_messages' %1> %>
+            <%= f.label :ISBN %>
+            <%= f.number_field :ISBN %>
+
+            <%= f.label :Title %>
+            <%= f.text_field :title %>
+
+            <%= f.label :Description %>
+            <%= f.text_field :description %>
+
+            <%= f.label :Quantity %>
+            <%= f.number_field :quantity %>
+
+            <%= f.submit "Save Changes" %>
+        <% end %>
+    </div>
+</div>
+
