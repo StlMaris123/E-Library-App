@@ -1,2 +1,23 @@
-<h1>Books#new</h1>
-<p>Find me in app/views/books/new.html.erb</p>
+<% provide(:title, "Add Book") %>
+<div class="medium-4 columns medium-offset-4">
+    <div class="callout">
+        <h1> Add Book</h1>
+        <p> Fill The form below to add a book of your choice</p>
+        <%= form_for @book do |f| %>
+            <%= render 'shared/error_messages' %>
+            <%= f.label :ISBN %>
+            <%= f.number_field :ISBN %>
+
+            <%= f.label :Title %>
+            <%= f.text_field :title %>
+
+            <%= f.label :Description %>
+            <%= f.text_field :description %>
+
+            <%= f.label :Quantity %>
+            <%= f.number_field :quantity %>
+
+            <%= f.submit "Add Book" %>
+        <% end %>
+    </div>
+</div>
