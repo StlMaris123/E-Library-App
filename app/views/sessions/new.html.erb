@@ -3,8 +3,8 @@
     <h1>LogIn</h1>
     <div class="callout">
         <%= form_for(:session, url: login_url) do |f| %>
-            <%= f.label :email %>
-            <%= f.email_field :email %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
             <%= f.label :password %>
             <%= link_to "(forgot password)", new_password_reset_path %>
             <%= f.password_field :password %>
