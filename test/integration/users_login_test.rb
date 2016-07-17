@@ -8,7 +8,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with invalid information " do
     get login_path
     assert_template 'sessions/new'
-    post login_path, params: { session: {email: "  ", password: "  "}
+    post login_path, params: { session: {name: "  ", password: "  "}
     }
     assert_template 'sessions/new'
     assert_not flash.empty?
@@ -17,7 +17,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
   test "login with valid information followed by logout " do
     get login_path
-    post login_path, params: { session: { email: @user.email, password: 'password' }
+    post login_path, params: { session: { name: @user.name, password: 'password' }
     }
     assert is_logged_in?
     assert_redirected_to @user
