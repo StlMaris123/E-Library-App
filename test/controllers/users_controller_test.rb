@@ -6,15 +6,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @other_user = users(:boris)
   end
 
+  test "should get new" do
+    get new_user_url 
+    assert_response :success
+  end
+
   test "should redirect index when not logged in" do
     get users_url
     assert_redirected_to login_url
   end
 
-  test "should get new" do
-    get new_user_url 
-    assert_response :success
-  end
   
   test "should redirect edit when not logged in" do
     get edit_user_path(@user), params: { id: @user }
@@ -48,7 +49,7 @@ end
   test "should redirect destroy when logged in as a non admin" do
     log_in_as(@other_user)
     assert_no_difference 'User.count' do
-      delete user_path(@user),params: { id: @user }
+      delete user_path(@user), params: { id: @user }
     end
     assert_redirected_to root_url
   end

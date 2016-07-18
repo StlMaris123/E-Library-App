@@ -1,5 +1,14 @@
 @import "foundation_and_overrides";
 .footer {
+    
     // position: fixed;
     // bottom: 0;
 }
+.callout{
+    padding: 10px;
+} 
+.callout-border-success{
+border: 1px solid darken($success-color, 20%);
+}
+
+

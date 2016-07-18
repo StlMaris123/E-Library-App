@@ -7,6 +7,6 @@
     <% if admin_user?  %>
         <td> <%= link_to "delete",book, method: :delete,
             data: { confirm: "You sure?" }%></td>
-        <td> <%= link_to "Edit", edit_url %></td>
+        <td> <%= link_to "Edit",book, method: :edit %></td>
     <% end %>
 </tr
