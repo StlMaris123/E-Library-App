@@ -1,10 +1,12 @@
 <tr>
+    <td><%= book.id %> </td>
     <td><%= book.ISBN %></td>
     <td><%= book.title %></td>
     <td><%= book.description %></td>
     <td><%= book.quantity %></td>
-    <td><% if logged_in?  %>
-        <%= link_to "delete",book, method: :delete,
-            data: { confirm: "You sure?" }%>
-    <% end %></td>
+    <% if admin_user?  %>
+        <td> <%= link_to "delete",book, method: :delete,
+            data: { confirm: "You sure?" }%></td>
+        <td> <%= link_to "Edit", edit_url %></td>
+    <% end %>
 </tr

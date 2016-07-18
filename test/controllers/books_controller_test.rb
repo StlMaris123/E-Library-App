@@ -12,12 +12,12 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    get edit_book_url
+    get edit_path
     assert_response :success
   end
 
   test "should get show" do
-    get book_url
+    get book_path
     assert_response :success
   end
 

@@ -4,29 +4,28 @@
     </div>
 
     <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
 
-        <li><%= link_to "Home", root_url %></li>
-        <li><%= link_to "FAQ", faq_url %></li>
-        <li>
+
+            <li><%= link_to "Home", root_url %></li>
+            <li><%= link_to "FAQ", faq_url %></li>
             <% if logged_in? %>
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <%= link_to "books", books_url %>
-                    <% if admin_user? %>
-                        <li><%= link_to "Add", new_book_path %></li>
-                        <li><%= link_to "Edit", edit_path %></li>
-                    <% end %>
-                </ul>
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <%= link_to "Users", users_path %>
+                <%= link_to "Users", users_path %>
+                <li><%= link_to "books", books_url %></li>
+                <% if admin_user? %>
+                    <li><%= link_to "Add Book", new_book_path %></li>
+                <% end %>
+                <li class="dropdown menu">
+                    <a href="#">Account</a>
                     <ul class="menu vertical" >
                         <li><%= link_to "Profile", current_user %></li>
                         <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                         <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                     </ul>
-                <% else %>
-                    <li><%= link_to "Log in", login_path %></li>
-                <% end %>
-        </li>
-                </ul>
+                </li>
+            <% else %>
+                <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+        </ul>
     </div>
 </div>
