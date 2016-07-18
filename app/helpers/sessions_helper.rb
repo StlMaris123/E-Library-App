@@ -9,7 +9,7 @@ module SessionsHelper
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
     # cookies[:remember_token] = { value: remember_token,
-                                # expires: 7.days.from_now.eat}
+    # expires: 7.days.from_now.eat}
   end
 
   #returns true if the given user is the current user
@@ -99,4 +99,8 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.url if request.get?
   end
+  def admin_user?
+    true
+  end
+
 end
