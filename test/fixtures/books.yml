@@ -2,7 +2,7 @@
 
 one:
   ISBN: 1
-  title: MyString
+  title: <%= Faker::Book.title %>
   description: MyString
   quantity: 1
 

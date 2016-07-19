@@ -3,7 +3,7 @@
     <td><%= book.title %></td>
     <td><%= book.description %></td>
     <td><%= book.quantity %></td>
-    <% if admin_user?  %>
+    <% if logged_in? && admin_user?  %>
         <td> <%= link_to "delete",book, method: :delete,
             data: { confirm: "You sure?" }%></td>
         <td> <%= link_to "Edit", "/books/#{book.id}/edit" %></td>
