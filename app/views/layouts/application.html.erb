@@ -15,7 +15,7 @@
         <%= render 'layouts/header' %>
         <div class="row">
             <% flash.each do |message_type, message| %>
-                <div data-alert class="alert-box <%= message_type %>">
+                <div class="callout <%= message_type %>">
                     <%= message %>
                 </div>
             <% end %>

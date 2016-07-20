@@ -1,3 +1,9 @@
-<%= provide(:title, @user.name)%>
-
+<% provide(:title, @user.name)%>
 <%= @user.name %>
+<h3> List of the books </h3>
+<% @books.each do |book| %>
+    <%= book.ISBN %>
+    <%= book.title %>
+    <%= book.description %>
+<% end %>
+
