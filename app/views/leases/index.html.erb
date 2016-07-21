@@ -1,17 +1,43 @@
 <% provide(:title, "All Leases") %>
-<h3>Requests made</h3>
-<% @requested.each do |requested| %>
-    <%= requested.user.email %>
-    <%= requested.book.ISBN %>
-    <%= requested.book.title %>
-    <%= requested.book.description %>
-    <%= link_to "Accept Request", accept_path(lease_id: requested.id, status: "borrowed") %></br>
-<% end %>
-
-<h3>Accepted Requests</h3>
-<% @borrowed.each do |borrowed| %>
-    <%= borrowed.user.email %>
-    <%= borrowed.book.ISBN %>
-    <%= borrowed.book.title %>
-    <%= borrowed.book.description %>
-<% end %>
+<div class="row">
+    <div class ="medium-6 columns">
+        <h3>Requests made</h3>
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+            <% @requested.each do |requested| %>
+                <tr>
+                    <td><%= requested.user.email %></td>
+                    <td> <%= requested.book.ISBN %></td>
+                    <td> <%= requested.book.title %></td>
+                    <td> <%= requested.book.description %></td>
+                    <td><%= link_to "Accept Request", accept_path(lease_id: requested.id, status: "borrowed") %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+    <div class="medium-6 columns">
+        <h3>Accepted Requests</h3>
+        <table>
+            <tr>
+                <th>Email</th>
+                <th>ISBN</th>
+                <th>Title</th>
+                <th>Description</th>
+            </tr>
+            <% @borrowed.each do |borrowed| %>
+                <tr>
+                    <td><%= borrowed.user.email %></td>
+                    <td><%= borrowed.book.ISBN %></td>
+                    <td><%= borrowed.book.title %></td>
+                    <td><%= borrowed.book.description %></td>
+                    <td><%= link_to "Return", method: :delete, class: "button" %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
