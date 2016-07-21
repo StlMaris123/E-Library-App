@@ -1,0 +1,17 @@
+<% provide(:title, "All Leases") %>
+<h3>Requests made</h3>
+<% @requested.each do |requested| %>
+    <%= requested.user.email %>
+    <%= requested.book.ISBN %>
+    <%= requested.book.title %>
+    <%= requested.book.description %>
+    <%= link_to "Accept Request", accept_path(lease_id: requested.id, status: "borrowed") %></br>
+<% end %>
+
+<h3>Accepted Requests</h3>
+<% @borrowed.each do |borrowed| %>
+    <%= borrowed.user.email %>
+    <%= borrowed.book.ISBN %>
+    <%= borrowed.book.title %>
+    <%= borrowed.book.description %>
+<% end %>

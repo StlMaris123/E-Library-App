@@ -16,6 +16,7 @@
                 <% if admin_user? %>
                 <li><%= link_to "books", books_url %></li>
                     <li><%= link_to "Add Book", new_book_path %></li>
+                    <li><%= link_to "Requested Books", leases_path%>
                 <% end %>
                 <li class="dropdown menu">
                     <a >Account</a>

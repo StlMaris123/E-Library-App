@@ -1,5 +1,5 @@
 class Lease < ApplicationRecord
-  enum status: { borrowed: 0, lost: 1}
+  enum status: { requested: 0, borrowed: 1, lost: 2, due: 3 }
   belongs_to :user
   belongs_to :book
 end

@@ -3,7 +3,7 @@ class LeasesController < ApplicationController
     @lease = Lease.new(lease_params)
     if  @lease.save
       flash[:success] = "Your request was successfully submitted"
-      redirect books_url
+      redirect_to books_url
     end
   end
 
@@ -11,27 +11,19 @@ class LeasesController < ApplicationController
     @requested = Lease.requested
     @borrowed = Lease.borrowed
   end
+  
 
   def new
     @lease = Lease.new
   end
 
-  def request
-    @lease = Lease.new
-    # if @book && @user != nil
-    #   #
-    #   flash[:success] = "Your request was successfully made"
-    # else
-    #   flash[:danger] = "Error processing your request"
-    # end
-  end
-  def book_status
-    @book = Book.find(params[:id])
-    @book.update_attribute(:status, params[:status])
-    redirect_to books_url
+  def accept
+    @lease = Lease.find(params[:lease_id])
+    @lease.update_attribute(:status, params[:status])
+    redirect_to leases_url
   end
   private
   def lease_params
-    params.require(:lease).permit(:user.id, :book.id)
+    params.require(:lease).permit(:user_id, :book_id)
   end
 end
