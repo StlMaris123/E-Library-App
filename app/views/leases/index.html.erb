@@ -35,7 +35,7 @@
                     <td><%= borrowed.book.ISBN %></td>
                     <td><%= borrowed.book.title %></td>
                     <td><%= borrowed.book.description %></td>
-                    <td><%= link_to "Return", method: :delete, class: "button" %></td>
+                    <td><%= link_to "Return",borrowed, method: :delete, class: "button" %></td>
                 </tr>
             <% end %>
         </table>

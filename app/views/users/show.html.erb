@@ -1,14 +1,23 @@
 <% provide(:title, @user.name)%>
-<%= @user.name %>
+<h3><%= @user.name %></h3>
 <h3> List of the books </h3>
-<% @books.each do |book| %>
-    <%= book.ISBN %>
-    <%= book.title %>
-    <%= book.description %>
-    <%= form_for current_user.leases.build do |f| %>
-        <%= f.hidden_field :book_id, value: book.id %>
-        <%= f.hidden_field :user_id %>
-        <%= f.submit "Request" %></br>
-        <% end %>
+<table>
+    <tr>
+        <th>ISBN</th>
+        <th>TITLE</th>
+        <th>Description</th>
+    </tr>
+    <% @books.each do |book| %>
+        <tr>
+            <td><%= book.ISBN %></td>
+            <td><%= book.title %></td>
+            <td><%= book.description %></td>
+            <td><%= form_for current_user.leases.build do |f| %>
+                <%= f.hidden_field :book_id, value: book.id %>
+                <%= f.hidden_field :user_id %>
+                <%= f.submit "Request", class: "button large" %></td>
+        </tr>
+    <% end %>
 <% end %>
+</table>
 

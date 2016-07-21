@@ -22,6 +22,11 @@ class LeasesController < ApplicationController
     @lease.update_attribute(:status, params[:status])
     redirect_to leases_url
   end
+
+  def destroy
+    @lease = Lease.find(params[:lease_id])
+    book = Book.find(@lease.book_id)
+  end
   private
   def lease_params
     params.require(:lease).permit(:user_id, :book_id)
