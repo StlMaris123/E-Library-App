@@ -5,5 +5,10 @@
     <%= book.ISBN %>
     <%= book.title %>
     <%= book.description %>
+    <%= form_for current_user.leases.build do |f| %>
+        <%= f.hidden_field :book_id, value: book.id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.submit "Request" %></br>
+        <% end %>
 <% end %>
 

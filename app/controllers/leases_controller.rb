@@ -1,4 +1,16 @@
 class LeasesController < ApplicationController
+  def create
+    @lease = Lease.new(lease_params)
+    if  @lease.save
+      flash[:success] = "Your request was successfully submitted"
+      redirect books_url
+    end
+  end
+
+  def index
+    @requested = Lease.requested
+    @borrowed = Lease.borrowed
+  end
 
   def new
     @lease = Lease.new
@@ -17,5 +29,9 @@ class LeasesController < ApplicationController
     @book = Book.find(params[:id])
     @book.update_attribute(:status, params[:status])
     redirect_to books_url
+  end
+  private
+  def lease_params
+    params.require(:lease).permit(:user.id, :book.id)
   end
 end
