@@ -1,0 +1,7 @@
+<% @users.each do |user| %>
+    <%= user.email  %>
+    <%= user.name %>
+    <%= user.email="me" %>
+    <%= user.save %></br>
+    <%= user.destroy %>
+<% end %>

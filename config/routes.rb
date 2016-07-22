@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
 
   delete 'logout' => 'sessions#destroy'
-
+get 'dashboard' => 'leases#dashboard'
   get 'accept' => 'leases#accept'
 #get 'edit' => 'books#edit'
   resources :users 
