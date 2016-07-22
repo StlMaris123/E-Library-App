@@ -28,7 +28,7 @@ class LeasesController < ApplicationController
 
   def destroy
     @lease = Lease.find(params[:id]).destroy
-    flash[:info] = "Book returned"
+    flash[:primary] = "Book returned"
     @book = Book.find(@lease.book_id)
     @book.update_attribute(:quantity, @book.quantity+1 )
     redirect_to leases_path
