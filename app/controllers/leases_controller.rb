@@ -2,7 +2,7 @@ class LeasesController < ApplicationController
   def create
     @lease = Lease.new(lease_params)
     if  @lease.save
-      flash.now[:success] = "Your request was successfully submitted"
+      flash[:success] = "Your request was successfully submitted"
       redirect_to current_user
     end
   end
