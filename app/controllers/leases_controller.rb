@@ -3,7 +3,7 @@ class LeasesController < ApplicationController
     @lease = Lease.new(lease_params)
     if  @lease.save
       flash.now[:success] = "Your request was successfully submitted"
-      #render 'users/show'
+      redirect_to current_user
     end
   end
 

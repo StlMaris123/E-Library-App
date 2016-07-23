@@ -1,23 +1,43 @@
 <% provide(:title, @user.name)%>
 <h3><%= @user.name %></h3>
-<h3> List of the books </h3>
-<table>
-    <tr>
-        <th>ISBN</th>
-        <th>TITLE</th>
-        <th>Description</th>
-    </tr>
-    <% @books.each do |book| %>
-        <tr>
-            <td><%= book.ISBN %></td>
-            <td><%= book.title %></td>
-            <td><%= book.description %></td>
-            <td><%= form_for current_user.leases.build do |f| %>
-                <%= f.hidden_field :book_id, value: book.id %>
-                <%= f.hidden_field :user_id %>
-                <%= f.submit "Request", class: "button large" %></td>
-        </tr>
-    <% end %>
-<% end %>
-</table>
-
+<div class="row">
+    <div class="medium-6 colums">
+        <h3> List of the books </h3>
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>TITLE</th>
+                <th>DESCRIPTION</th>
+            </tr>
+            <% @books.each do |book| %>
+                <tr>
+                    <td><%= book.ISBN %></td>
+                    <td><%= book.title %></td>
+                    <td><%= book.description %></td>
+                    <td><%= form_for current_user.leases.build do |f| %>
+                        <%= f.hidden_field :book_id, value: book.id %>
+                        <%= f.hidden_field :user_id %>
+                        <%= f.submit "Request", class: "button large" %></td>
+                </tr>
+            <% end %>
+        <% end %>
+        </table>
+    </div>
+    <div class="medium-6 columns">
+        <h3>List of the borrowed books</h3>
+        <table>
+            <tr>
+                <th>ISBN</th>
+                <th>TITLE</th>
+                <th>DESCRIPTION</th>
+            </tr>
+            <% @borrowed.each do |borrowed| %>
+                <tr>
+                    <td><%= borrowed.ISBN %></td>
+                    <td><%= borrowed.title %></td>
+                    <td><%= borrowed.description %></td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>

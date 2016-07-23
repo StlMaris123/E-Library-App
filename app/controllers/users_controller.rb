@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @books = Book.where(available: true )
+    @borrowed = Lease.borrowed
   end
 
   def create 
