@@ -1,7 +1,7 @@
 <% provide(:title, @user.name)%>
 <h3><%= @user.name %></h3>
 <div class="row">
-    <div class="medium-6 colums">
+    <div class="medium-6 columns">
         <h3> List of the books </h3>
         <table>
             <tr>
@@ -33,9 +33,9 @@
             </tr>
             <% @borrowed.each do |borrowed| %>
                 <tr>
-                    <td><%= borrowed.ISBN %></td>
-                    <td><%= borrowed.title %></td>
-                    <td><%= borrowed.description %></td>
+                    <td><%= borrowed.book.ISBN %></td>
+                    <td><%= borrowed.book.title %></td>
+                    <td><%= borrowed.book.description %></td>
                 </tr>
             <% end %>
         </table>
