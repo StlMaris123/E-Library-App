@@ -1,6 +1,8 @@
 class LeasesController < ApplicationController
+  before_action :admin_user, only: [:accept, :destroy]
   def create
     @lease = Lease.new(lease_params)
+
     begin
       if  @lease.save
         flash[:success] = "Your request was successfully submitted"
