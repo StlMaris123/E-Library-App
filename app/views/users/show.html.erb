@@ -31,12 +31,14 @@
                 <th>ISBN</th>
                 <th>TITLE</th>
                 <th>DESCRIPTION</th>
+                <th>Due Date</th>
             </tr>
             <% @borrowed.each do |borrowed| %>
                 <tr>
                     <td><%= borrowed.book.ISBN %></td>
                     <td><%= borrowed.book.title %></td>
                     <td><%= borrowed.book.description %></td>
+                    <td> <%= remaining_days(borrowed) %></td>
                 </tr>
             <% end %>
         </table>
