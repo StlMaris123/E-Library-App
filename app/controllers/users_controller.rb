@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @books = Book.where(available: true )
-    @borrowed = Lease.borrowed
+    @borrowed = @user.leases.borrowed 
   end
 
   def create 
@@ -46,30 +46,30 @@ class UsersController < ApplicationController
     flash[:success] = "User deleted"
     redirect_to users_url
   end
-private
-def user_params
-  params.require(:user).permit(:name, :email, :password,
-                             :password_confirmation)
-end
-#confirms a logged in user
-def logged_in_user
-  unless logged_in?
-    store_location
-    flash[:alert] = "You have to log in first!"
-    redirect_to login_url
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password,
+                                 :password_confirmation)
   end
-end
-def correct_user
-  @user = User.find(params[:id])
-  redirect_to(root_url) unless current_user?(@user)
-end
+  #confirms a logged in user
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:alert] = "You have to log in first!"
+      redirect_to login_url
+    end
+  end
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
+  end
 
-def admin_user
-  redirect_to(root_url) unless current_user.present? && current_user.admin?
-end
-# def check_captcha
-#   unless verify_recaptcha
-#     render 'new'
-#   end
-# end
+  def admin_user
+    redirect_to(root_url) unless current_user.present? && current_user.admin?
+  end
+  # def check_captcha
+  #   unless verify_recaptcha
+  #     render 'new'
+  #   end
+  # end
 end
