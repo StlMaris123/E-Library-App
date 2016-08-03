@@ -35,6 +35,8 @@ class LeasesController < ApplicationController
     @lease.update_attributes(status: 'borrowed', due_date: due_date, start_date: Time.zone.now)
     @book = Book.find(@lease.book_id)
     @book.update_attribute(:quantity, @book.quantity-1)
+    @user = User.find(@lease.user_id)
+    @user.send_request_approval
     redirect_to leases_url
   end
 

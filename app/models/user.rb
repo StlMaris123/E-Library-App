@@ -53,6 +53,10 @@ class User < ApplicationRecord
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
   end
+
+  def send_request_approval
+    UserMailer.request_approval(self).deliver_now
+  end
   #forgets a user
   def forget
     update_attribute(:remember_digest, nil)
