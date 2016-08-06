@@ -18,4 +18,18 @@ class BooksNewTest < ActionDispatch::IntegrationTest
     assert_template 'books/new'
   end
 
+  test "successful book addition" do
+    log_in_as(@admin)
+    get new_book_path
+    assert_template 'books/new'
+    assert_difference 'Book.count', 1 do
+      post books_url(@book), params: { book: { title: "Me You",
+                                                ISBN: "123456AS",
+                                                Description: "zxcvbnmasdf",
+                                                quantity: 1} }
+    end
+    assert_not flash.empty?
+    assert_redirected_to books_url
+  end
+
 end

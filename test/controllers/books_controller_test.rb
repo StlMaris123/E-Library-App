@@ -3,6 +3,7 @@ require 'test_helper'
 class BooksControllerTest < ActionDispatch::IntegrationTest
   def setup
     @book = books(:one)
+    @admin = users(:stella)
   end
   test "should get new" do
     get new_book_url
@@ -10,11 +11,12 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-    get books_url
+    get books_url(@books)
     assert_response :success
   end
 
   test "should get edit" do
+    log_in_as(@dmin)
     get edit_book_url(@book)
     assert_response :success
   end
