@@ -3,11 +3,12 @@
 one:
   ISBN: 1
   title: <%= Faker::Book.title %>
-  description: MyString
+  description: "MyString"
   quantity: 1
+  # user: stella
 
 two:
   ISBN: 1
   title: MyString
-  description: MyString
+  description: "MyStringi"
   quantity: 1

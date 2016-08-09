@@ -9,7 +9,7 @@ class BooksNewTest < ActionDispatch::IntegrationTest
     get new_book_path
     assert_template 'books/new'
     assert_no_difference 'Book.count' do
-    post books_url(@book), params: { book: { title: "",
+    post books_url, params: { book: { title: "",
                                       ISBN: "",
                                       description: "",
                                       quantity: ""
@@ -23,9 +23,9 @@ class BooksNewTest < ActionDispatch::IntegrationTest
     get new_book_path
     assert_template 'books/new'
     assert_difference 'Book.count', 1 do
-      post books_url(@book), params: { book: { title: "Me You",
+      post books_url, params: { book: { title: "Me You",
                                                 ISBN: "123456AS",
-                                                Description: "zxcvbnmasdf",
+                                                description: "zxcvbnmasdf",
                                                 quantity: 1} }
     end
     assert_not flash.empty?

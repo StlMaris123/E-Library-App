@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.new(book_params)
     if @book.save
       flash[:success] = "Book was successfully added"
       redirect_to books_path 
@@ -26,7 +26,7 @@ class BooksController < ApplicationController
 
 
   def update
-    @book = Book.find(params[:id])
+    @book =  Book.find(params[:id])
     if @book.update_attributes(book_params)
       flash[:success] = "Book was successfully updated"
       redirect_to books_url
