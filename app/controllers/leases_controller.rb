@@ -17,34 +17,36 @@ class LeasesController < ApplicationController
     end
   end
 
-    def index
-      @requested = Lease.requested
-      @borrowed = Lease.borrowed
-    end
-
-
-    def new
-      @lease = Lease.new
-    end
-
-    def accept
-      @lease = Lease.find(params[:lease_id])
-      @lease.update_attribute(:status, 'borrowed')
-      @book = Book.find(@lease.book_id)
-      @book.update_attribute(:quantity, @book.quantity-1)
-      redirect_to leases_url
-    end
-
-
-    def destroy
-      @lease = Lease.find(params[:id]).destroy
-      flash[:primary] = "Book returned"
-      @book = Book.find(@lease.book_id)
-      @book.update_attribute(:quantity, @book.quantity+1 )
-      redirect_to leases_path
-    end
-    private
-    def lease_params
-      params.require(:lease).permit(:user_id, :book_id)
-    end
+  def index
+    @requested = Lease.requested
+    @borrowed = Lease.borrowed
   end
+
+
+  def new
+    @lease = Lease.new
+  end
+
+  def accept
+    @lease = Lease.find(params[:lease_id])
+    due_date = 14.days.from_now
+    @lease.update_attributes(status: 'borrowed', due_date: due_date, start_date: Time.zone.now)
+    # @lease.charges == 50
+    @book = Book.find(@lease.book_id)
+    @book.update_attribute(:quantity, @book.quantity-1)
+    redirect_to leases_url
+  end
+  
+
+  def destroy
+    @lease = Lease.find(params[:id]).destroy
+    flash[:primary] = "Book returned"
+    @book = Book.find(@lease.book_id)
+    @book.update_attribute(:quantity, @book.quantity+1 )
+    redirect_to leases_path
+  end
+  private
+  def lease_params
+    params.require(:lease).permit(:user_id, :book_id)
+  end
+end

@@ -6,4 +6,14 @@ module LeasesHelper
       end
     end
   end
+
+  # def charge_fee(lease)
+  #   if lease.due_date < 0
+  #     lease.due_date *= 50
+  #   else
+  #     lease.charges==nil
+
+  #   end
+  # end
 end
+
