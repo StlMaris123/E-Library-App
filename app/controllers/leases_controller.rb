@@ -1,10 +1,10 @@
 class LeasesController < ApplicationController
   before_action :admin_user?, only: [:accept, :destroy]
   def create
-    @lease = Lease.new(lease_params)
+    lease = Lease.new(lease_params)
 
     begin
-      if  @lease.save
+      if lease.save
         flash[:success] = "Your request was successfully submitted"
         redirect_to current_user
       else
@@ -28,10 +28,11 @@ class LeasesController < ApplicationController
   end
 
   def accept
+    # debugger
     @lease = Lease.find(params[:lease_id])
     due_date = 14.days.from_now
+    charge_fee = 50 * @lease.over_due
     @lease.update_attributes(status: 'borrowed', due_date: due_date, start_date: Time.zone.now)
-    # @lease.charges == 50
     @book = Book.find(@lease.book_id)
     @book.update_attribute(:quantity, @book.quantity-1)
     redirect_to leases_url

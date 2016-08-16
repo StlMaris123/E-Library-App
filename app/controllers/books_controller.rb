@@ -49,7 +49,7 @@ class BooksController < ApplicationController
 private
 def book_params
   params.require(:book).permit(:ISBN, :title, 
-                               :description, :quantity)
+                               :description, :quantity, :search)
 end
 def admin_user
   redirect_to(books_url) unless current_user.admin?

@@ -2,6 +2,10 @@
 <h4>Hello, <%= @user.name %></h4>
 <h5> Welcome to the E-LIBRARY platform</h5>
 <div class="row">
+    <%=form_tag(books_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :seach, params[:search], placeholder: "Search Books" %>
+        <%= submit_tag "Search" %>
+    <% end %>
     <div class="medium-6 columns">
         <h3> List of the books available </h3>
         <table>
@@ -22,7 +26,7 @@
                             <%= f.submit "Request", class: "button large" %></td>
                     </tr>
                 <% end %>
-            <%# <% end %1> %>
+                <%# <% end %1> %>
         <% end %>
         </table>
     </div>
@@ -34,7 +38,7 @@
                 <th>TITLE</th>
                 <th>DESCRIPTION</th>
                 <th>Due Date</th>
-                    <th> Charge Fee</th>
+                <th> Charge Fee</th>
             </tr>
             <% @borrowed.each do |borrowed| %>
                 <tr>
@@ -42,7 +46,7 @@
                     <td><%= borrowed.book.title %></td>
                     <td><%= borrowed.book.description %></td>
                     <td> <%= remaining_days(borrowed) unless borrowed.due_date.nil? %></td>
-                    <%# <td> <%= charge_fee(borrowed)  %1></td> %>
+                    <td> <%= charge_fee(borrowed)  %></td>
                 </tr>
             <% end %>
         </table>

@@ -7,3 +7,7 @@ class Book < ApplicationRecord
  validates :description, presence: true
  validates :quantity, presence: true, numericality: { greater_than_or_equal_to: 1 }
 end
+
+def self.search(search)
+    where("title LIKE ?", "%#{search}%")
+end

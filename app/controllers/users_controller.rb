@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(id: params[:id])
     @books = Book.where(available: true )
+    if params[:search]
+      @books = Book.search(params[:search]).order("created_at DESC")
+    else
+      @books = Book.all.order('created_at DESC')
+    end
     @borrowed = @user.leases.borrowed 
   end
 

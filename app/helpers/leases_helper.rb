@@ -7,13 +7,10 @@ module LeasesHelper
     end
   end
 
-  # def charge_fee(lease)
-  #   if lease.due_date < 0
-  #     lease.due_date *= 50
-  #   else
-  #     lease.charges==nil
-
-  #   end
-  # end
+  def charge_fee(lease)
+    if lease.over_due
+    distance_of_time_in_words(Time.zone.now, lease.over_due)
+    end
+  end
 end
 
