@@ -9,17 +9,12 @@ class BooksEditTest < ActionDispatch::IntegrationTest
     log_in_as(@admin)
     get edit_book_path(@book)
     assert_template 'books/edit'
-    title =
-    ISBN  =
-    description =
-    quantity = 
-    patch book_path(@document), params: { book: {  } }
-    assert_not flash.empty?
-    @book.reload
-    assert_equal @book.title, title
-    assert_equal @book.ISBN, ISBN
-    assert_equal @book.description, description
-    asssert_equal @book.department
-
+    patch book_path(@book), params: { book: {
+    title:  "",
+    ISBN:   123,
+    description: "",
+    quantity: 0
+    }}
+assert_template 'documents/edit'
   end
 end
