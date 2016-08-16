@@ -1,5 +1,8 @@
 class FixedPagesController < ApplicationController
   def home
+    if logged_in?
+      @leases = current_user.leases.borrowed
+    end
   end
 
   def faq

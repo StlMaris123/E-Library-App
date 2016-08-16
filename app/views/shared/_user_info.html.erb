@@ -1,0 +1,4 @@
+<%= link_to gravatar_for(current_user, size: 50), current_user %>
+<h1> <%= current_user.name %>
+<h2> <%= link_to "View my profile", current_user %> </h2>
+<h1> <%= pluralize(current_user.leases.borrowed.count, "book") %> borrowed</h1>
