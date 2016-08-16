@@ -1,20 +1,24 @@
 <%= provide(:title, "Edit Profile") %>
-        <h1> Edit your profile </h1>
-        <div class="row">
-<div class="medium-4 columns medium-offset-4">
-    <div class="callout">
-        <%= form_for @user do |f|%>
-            <%= render 'shared/error_messages', object: f.object %>
-            <%= f.label :name %>
-            <%= f.text_field :name%>
-            <%= f.label :email%>
-            <%= f.email_field :email%>
-            <%= f.label :password%>
-            <%= f.password_field :password%>
-            <%= f.label :password_confirmation%>
-            <%= f.password_field :password%>
-            <%=f.submit "Submit" %>
-        <% end %>
+<h1> Edit your profile </h1>
+<div class="row">
+    <div class="medium-4 columns medium-offset-4">
+        <div class="callout">
+            <%= form_for @user do |f|%>
+                <%= render 'shared/error_messages', object: f.object %>
+                <%= f.label :name %>
+                <%= f.text_field :name%>
+                <%= f.label :email%>
+                <%= f.email_field :email%>
+                <%= f.label :password%>
+                <%= f.password_field :password%>
+                <%= f.label :password_confirmation%>
+                <%= f.password_field :password%>
+                <%=f.submit "Submit" %>
+            <% end %>
+            <div class="gravatar_edit">
+                <%= gravatar_for @user %>
+                <a href="http://gravatar.com/emails" target=_blank>change</a>
+            </div>
         </div>
     </div>
 </div>

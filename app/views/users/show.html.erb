@@ -5,7 +5,7 @@
 <div class="row">
     <%=form_tag user_path(current_user), method: :get do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "Search", :name => nil, class: "button small" %>
     <% end %>
     <div class="medium-6 columns">
         <h3> List of the books available </h3>
