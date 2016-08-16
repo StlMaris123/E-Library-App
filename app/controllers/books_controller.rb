@@ -21,7 +21,7 @@ class BooksController < ApplicationController
 
 
   def edit
-    @book = Book.find(params[:id])
+    @book = admin_user.books.find(params[:id])
   end
 
 
