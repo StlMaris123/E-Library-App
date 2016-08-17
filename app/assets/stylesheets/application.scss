@@ -2,13 +2,15 @@
 *= require_tree .
 *= require_self
 */
-// @import "foundation_and_overrides";
+@import "foundation_and_overrides";
 
+@import "font-awesome";
 .errors {
     color: red;
 }
-footer{
+.footer{
     position: fixed;
     bottom: 0;
     color: gray_light;
 }
+

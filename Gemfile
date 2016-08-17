@@ -28,6 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 gem 'will_paginate'
 gem 'recaptcha'
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

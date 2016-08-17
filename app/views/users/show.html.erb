@@ -47,7 +47,7 @@
                     <td><%= borrowed.book.title %></td>
                     <td><%= borrowed.book.description %></td>
                     <td> <%= remaining_days(borrowed) unless borrowed.due_date.nil? %></td>
-                    <td> <%= charge_fee(borrowed)  %></td>
+                    <td> <%= fine(borrowed)  %></td>
                 </tr>
             <% end %>
         </table>

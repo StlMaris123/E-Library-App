@@ -6,11 +6,21 @@ module LeasesHelper
       end
     end
   end
+  # def overdue?
+  #   due_date_absolute < Time.now.strftime("%d %B %Y") && self.active == true
+  # end
 
-  def charge_fee(lease)
-    if lease.over_due
-    distance_of_time_in_words(Time.zone.now, lease.over_due)
-    end
-  end
+  # def overdue_rate
+  #   50.0
+  # end
+
+  # def due_date_absolute
+  #       self.booking_end.strftime("%d %B %Y")
+  # end
+
+  # def fine
+  #   overdue_rate * ((Time.zone.now - over_due_date)/1.days)
+  # end
+
 end
 
