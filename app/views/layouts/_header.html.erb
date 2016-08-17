@@ -13,18 +13,18 @@
             <li><%= link_to fa_icon('info-circle', text: "About"), about_url%></li>
             <li><%=link_to fa_icon('phone-square', text: "Contact us"), contact_url%></li>
             <% if logged_in? %>
-                <li><%= link_to "Users", users_path %></li>
+                <li><%= link_to fa_icon('users', text: "Users"), users_path %></li>
                 <% if admin_user? %>
-                <li><%= link_to "books", books_url %></li>
-                    <li><%= link_to "Add Book", new_book_path %></li>
+                <li><%= link_to fa_icon('book', text: "books"), books_url %></li>
+                    <li><%= link_to fa_icon('plus', text: "Add Book"), new_book_path %></li>
                     <li><%= link_to "Requested Books", leases_path%>
                 <% end %>
                 <li class="dropdown menu">
                     <a >Account</a>
                     <ul class="menu vertical" >
-                        <li><%= link_to "Profile", current_user %></li>
+                        <li><%= link_to fa_icon('user', text: "Profile"), current_user %></li>
                         <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-                        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+                        <li><%= link_to fa_icon('sign-out', text: "Log out"), logout_path, method: "delete" %></li>
                     </ul>
                 </li>
             <% else %>
