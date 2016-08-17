@@ -23,7 +23,7 @@
                     <a >Account</a>
                     <ul class="menu vertical" >
                         <li><%= link_to fa_icon('user', text: "Profile"), current_user %></li>
-                        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                        <li><%= link_to fa_icon('cog', text: "Settings"), edit_user_path(current_user) %></li>
                         <li><%= link_to fa_icon('sign-out', text: "Log out"), logout_path, method: "delete" %></li>
                     </ul>
                 </li>
