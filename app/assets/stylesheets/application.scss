@@ -8,9 +8,12 @@
 .errors {
     color: red;
 }
-.footer{
-    position: fixed;
+#footer{
     bottom: 0;
     color: gray_light;
+    text-align: center;
+    font-family: Monospace;
+    margin-left: auto;
+    margin-right: auto;
 }
 
