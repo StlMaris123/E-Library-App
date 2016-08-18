@@ -1,12 +1,22 @@
 <% provide(:title, @user.name)%>
-<%= gravatar_for @user %>
-<h4>Hello, <%= @user.name %></h4>
-<h5> Welcome to the E-LIBRARY platform</h5>
 <div class="row">
-    <%=form_tag user_path(current_user), method: :get do %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
-        <%= submit_tag "Search", :name => nil, class: "button small" %>
-    <% end %>
+    <div class="medium-4 columns">
+        <%= gravatar_for @user %>
+        <h4>Hello, <%= @user.name %></h4>
+        <h5> Welcome to the E-LIBRARY platform</h5>
+    </div>
+</div>
+<div class="row">
+    <div class="row">
+        <div class="medium-8 columns">
+            <%=form_tag user_path(current_user), method: :get do %>
+                <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
+        </div>
+        <div class="medium-4 columns">
+            <%= submit_tag "Search", :name => nil, class: "button expanded " %>
+        <% end %>
+        </div>
+    </div>
     <div class="medium-6 columns">
         <h3> List of the books available </h3>
         <table>
