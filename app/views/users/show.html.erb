@@ -2,9 +2,9 @@
 <h4>Hello, <%= @user.name %></h4>
 <h5> Welcome to the E-LIBRARY platform</h5>
 <div class="row">
-    <%=form_tag(books_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :seach, params[:search], placeholder: "Search Books" %>
-        <%= submit_tag "Search" %>
+    <%=form_tag user_path(current_user), method: :get do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
+        <%= submit_tag "Search", :name => nil %>
     <% end %>
     <div class="medium-6 columns">
         <h3> List of the books available </h3>
@@ -15,7 +15,7 @@
                 <th>DESCRIPTION</th>
             </tr>
             <% @books.each do |book| %>
-                <%# <% unless current_user.leases.include?book %1> %>
+                <% unless current_user.books.include? book %>
                     <tr>
                         <td><%= book.ISBN %></td>
                         <td><%= book.title %></td>
@@ -26,7 +26,7 @@
                             <%= f.submit "Request", class: "button large" %></td>
                     </tr>
                 <% end %>
-                <%# <% end %1> %>
+                <% end %>
         <% end %>
         </table>
     </div>

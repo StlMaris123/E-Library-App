@@ -28,16 +28,15 @@ class LeasesController < ApplicationController
   end
 
   def accept
-    # debugger
     @lease = Lease.find(params[:lease_id])
     due_date = 14.days.from_now
-    charge_fee = 50 * @lease.over_due
+    # charge_fee = 50 * lease.over_due
     @lease.update_attributes(status: 'borrowed', due_date: due_date, start_date: Time.zone.now)
     @book = Book.find(@lease.book_id)
     @book.update_attribute(:quantity, @book.quantity-1)
     redirect_to leases_url
   end
-  
+
 
   def destroy
     @lease = Lease.find(params[:id]).destroy

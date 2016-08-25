@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :books
+  has_many :books, through: :leases
   has_many :leases
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
