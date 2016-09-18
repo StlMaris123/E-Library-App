@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
   get 'about' => 'fixed_pages#about'
 
-  get 'contact' => 'fixed_pages#contact'
 
   get 'login' => 'sessions#new'
 
