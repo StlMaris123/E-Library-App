@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  require 'AfricasTalkingGateway'
   has_many :books, through: :leases
   has_many :leases
   attr_accessor :remember_token, :activation_token, :reset_token
@@ -64,6 +65,27 @@ class User < ApplicationRecord
   #returns true if password reset hass expired
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+  def send_sms(message)
+    username = ENV['MY_USERNAME']
+    apikey = ENV['MY_API']
+    #introduce country code into mobile number if the previous number did not have it
+    first_digit = mobile_number[0]
+    if first_digit == '0'
+      mobile_number[0] = '+254'
+    end
+    gateway = AfricasTalkingGateway.new(username, apikey)
+    begin
+      reports = gateway.sendMessage(mobile_number, message)
+      reports.each { |x|
+        #status is either success or error
+        puts 'number=' + x.mobile_number + ';status=' + x.status + ';messageId=' + x.messageId + ';cost=' + x.cost
+        puts 'number=' + x.number + ';status=' + x.status + ';messageId=' + x.messageId + ';cost=' + x.cost
+
+      }
+    rescue AfricasTalkingGGatewayException => ex
+      puts 'Encountered an error:' + ex.message
+    end
   end
   private
   #converts email to all lower_case

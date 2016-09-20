@@ -36,6 +36,10 @@ class LeasesController < ApplicationController
     @book = Book.find(@lease.book_id)
     @book.update_attribute(:quantity, @book.quantity-1)
     @user = User.find(@lease.user_id)
+    @user.send_sms("Hello #{@user.name},your request has been approved.
+                   Kindly come and collect your book.
+                   regards,
+                   stella-librarian")
     @user.send_request_approval
     redirect_to leases_url
   end
