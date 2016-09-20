@@ -1,6 +1,7 @@
 stella:
   name: Stella Njage
   email: stellanjage@yahoo.com
+  mobile_number: 0123456789
   password_digest: <%= User.digest('password') %>
   admin: true
   activated: true
@@ -9,6 +10,7 @@ stella:
 boris:
   name: Boris Njage
   email: borisnjage@gmail.com
+  mobile_number: 0123456789
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
@@ -16,6 +18,7 @@ boris:
 tracey:
   name: Tracey Miriam
   email: tracey@hotmail.co.ke
+  mobile_number: 0123456789
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
