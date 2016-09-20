@@ -2,6 +2,7 @@ User.create!(name: "Stella Njage",
              email: "stellanjage@yahoo.com",
              password: "rainbow",
              password_confirmation: "rainbow",
+             mobile_number: "0123456789",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
@@ -14,6 +15,7 @@ User.create!(name: "Stella Njage",
                email: email,
                password:             password,
                password_confirmation: password,
+               mobile_number: "1234567890",
                activated: true,
                activated_at: Time.zone.now)
 end

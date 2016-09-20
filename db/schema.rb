@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815192832) do
+ActiveRecord::Schema.define(version: 20160920053018) do
 
   create_table "books", force: :cascade do |t|
     t.string   "ISBN"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160815192832) do
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
+    t.string   "mobile_number"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

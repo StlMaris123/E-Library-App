@@ -12,6 +12,8 @@
             <%= f.password_field :password%>
             <%= f.label :password_confirmation%>
             <%= f.password_field :password_confirmation%>
+            <%= f.label :mobile_number %>
+            <%= f.text_field :mobile_number %>
             <%# <%= recaptcha_tags %1> %>
             <%=f.submit  "signup", class: "button button large" %>
         <% end %>
