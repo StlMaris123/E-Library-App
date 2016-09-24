@@ -38,7 +38,7 @@ class UserTest < ActiveSupport::TestCase
     invalid_addresses = %w[ste@gmail_c.o ste@gma,co ste@gmail ste.co.ke ste@gmail+co]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
-      assert_not @user.valid?, "#{invalid_address.inspect}should be valid"
+      assert_not @user.valid?, "#{invalid_address.inspect}should be invalid"
     end
   end
 

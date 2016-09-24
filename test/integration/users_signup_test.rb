@@ -9,9 +9,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_no_difference 'User.count' do
       post users_path params: {
         user: {name: "",
-                             email: "ste.gmail.com",
-                             password: "bow",
-                             password_confirmation: "rain"}
+               email: "ste.gmail.com",
+              password: "bow",
+             password_confirmation: "rain",
+             mobile_number: ""}
       }
     end
     assert_template 'users/new'
@@ -22,9 +23,10 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count', 1 do
       post users_path, params: {
         user: { name: "stella",
-                               email: "ste@gmail.com",
-                               password: "rainbow",
-                               password_confirmation: "rainbow"}
+                email: "stel@gmail.com",
+                password: "rainbow",
+                password_confirmation: "rainbow",
+                mobile_number: 0710123456}
       }
     end
     assert_equal 1, ActionMailer::Base.deliveries.size
