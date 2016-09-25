@@ -26,7 +26,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                 email: "stel@gmail.com",
                 password: "rainbow",
                 password_confirmation: "rainbow",
-                mobile_number: 0710123456}
+                mobile_number: "0710123456"}
       }
     end
     assert_equal 1, ActionMailer::Base.deliveries.size

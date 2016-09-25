@@ -18,7 +18,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
-    log_in_as(@dmin)
+    log_in_as(@admin)
     get edit_book_url(@book)
     assert_response :success
   end
