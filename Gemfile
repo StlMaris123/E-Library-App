@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0'
 # Use sqlite3 as the database for Active Record
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+# gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'sqlite3'
   gem 'railroady'
+  gem 'figaro'
 end
 
 group :development do
@@ -55,4 +56,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 group :production do
   gem 'pg'
+  gem 'puma'
 end
