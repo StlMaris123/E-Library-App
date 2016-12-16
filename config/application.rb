@@ -5,7 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-config.serve_fixed_assets = true
+# config.serve_fixed_assets = true
 
 module ELibrary
   class Application < Rails::Application
