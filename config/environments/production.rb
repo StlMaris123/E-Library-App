@@ -9,6 +9,7 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
+  http.use_ssl = true
   config.action_mailer.delivery_method = :smtp
   #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
