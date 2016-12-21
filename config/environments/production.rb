@@ -9,17 +9,17 @@ Rails.application.configure do
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
-  http.use_ssl = true
+  http.use_ssl = true if domain =~ /^https/
   config.action_mailer.delivery_method = :smtp
   #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-     :address              => "smtp.gmail.com",
-     :port                 => 587,
-     :domain               => "https://powerful-bayou-70411.herokuapp.com/",
-     :user_name            => ENV['GMAIL_USERNAME'],
-     :password             => ENV['GMAIL_PASSWORD'],
-     :authentication       => "plain",
-     :enable_starttls_auto => true
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => "https://powerful-bayou-70411.herokuapp.com/",
+    :user_name            => ENV['GMAIL_USERNAME'],
+    :password             => ENV['GMAIL_PASSWORD'],
+    :authentication       => "plain",
+    :enable_starttls_auto => true
   }
 
   # Full error reports are disabled and caching is turned on.
