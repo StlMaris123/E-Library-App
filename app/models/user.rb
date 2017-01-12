@@ -42,7 +42,6 @@ class User < ApplicationRecord
   #ends activation email
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
-    update_attribute(:activation_sent_at, Time.zone.now)
   end
 
   #sets the password resets attributes
